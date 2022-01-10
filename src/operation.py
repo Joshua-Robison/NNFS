@@ -1,19 +1,8 @@
-# -*- coding: utf-8 -*-
-"""
-Deep Learning from Scratch
-
-Class Definition:
-----------------
-Operation
-ParamOperation
-"""
 import numpy as np
 
 
 class Operation:
-    """
-    This is the base class for an operation in a neural network.
-    """
+    """This is the base class for an operation in a neural network."""
     def __init__(self):
         pass
 
@@ -36,9 +25,7 @@ class Operation:
 
 
 class ParamOperation(Operation):
-    """
-    This class is an operation with parameters.
-    """
+    """This class is an operation with parameters."""
     def __init__(self, param: np.ndarray):
         super().__init__()
         self.param = param
@@ -51,3 +38,7 @@ class ParamOperation(Operation):
 
     def _param_grad(self, output_grad: np.ndarray) -> np.ndarray:
         raise NotImplementedError()
+
+
+if __name__ == '__main__':
+    pass

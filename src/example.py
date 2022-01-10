@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Deep Learning from Scratch
-
-This is an example demonstrating how to use the NNFS package.
-"""
 from sklearn.datasets import load_boston
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split

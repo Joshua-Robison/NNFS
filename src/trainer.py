@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Deep Learning from Scratch
-
-Class Definition:
-----------------
-Trainer
-"""
 import numpy as np
 from copy import deepcopy
 from typing import Tuple
@@ -18,9 +10,7 @@ from loss import MeanSquaredError
 
 
 class Trainer:
-    """
-    This class trains a neural network.
-    """
+    """This class trains a neural network."""
     def __init__(self, net: NeuralNetwork, optim: Optimizer):
         self.net = net
         self.optim = optim
@@ -65,3 +55,7 @@ class Trainer:
                     # ensure self.optim is still updating self.net
                     setattr(self.optim, 'net', self.net)
                     break
+
+
+if __name__ == '__main__':
+    pass

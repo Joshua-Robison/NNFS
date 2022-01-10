@@ -1,12 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Deep Learning from Scratch
-
-Class Definition:
-----------------
-Layer
-Dense
-"""
 import numpy as np
 from typing import List
 from operation import Operation, ParamOperation
@@ -16,9 +7,7 @@ from sigmoid import Sigmoid
 
 
 class Layer:
-    """
-    This class is a layer of neurons in a neural network.
-    """
+    """This class is a layer of neurons in a neural network."""
     def __init__(self, neurons: int):
         self.neurons = neurons
         self.first = True
@@ -30,17 +19,6 @@ class Layer:
         raise NotImplementedError()
 
     def forward(self, input_: np.ndarray) -> np.ndarray:
-        """
-        This function passes input forward through a series of operations.
-
-        Parameters:
-        ----------
-        input_ : np.ndarray
-
-        Returns:
-        -------
-        np.ndarray
-        """
         if self.first:
             self._setup_layer(input_)
             self.first = False
@@ -54,17 +32,6 @@ class Layer:
         return self.output
 
     def backward(self, output_grad: np.ndarray) -> np.ndarray:
-        """
-        This function passes output_grad backward through a series of operations.
-
-        Parameters:
-        ----------
-        output_grad : np.ndarray
-
-        Returns:
-        -------
-        input_grad : np.ndarray
-        """
         for operation in reversed(self.operations):
             output_grad = operation.backward(output_grad)
 
@@ -74,34 +41,12 @@ class Layer:
         return input_grad
 
     def _param_grads(self):
-        """
-        This function extracts the _param_grads from a layer's operations.
-
-        Parameters:
-        ----------
-        output_grad : np.ndarray
-
-        Returns:
-        -------
-        None
-        """
         self.param_grads = []
         for operation in self.operations:
             if issubclass(operation.__class__, ParamOperation):
                 self.param_grads.append(operation.param_grad)
 
     def _params(self):
-        """
-        This function extracts the _params from a layer's operations.
-
-        Parameters:
-        ----------
-        output_grad : np.ndarray
-
-        Returns:
-        -------
-        None
-        """
         self.params = []
         for operation in self.operations:
             if issubclass(operation.__class__, ParamOperation):
@@ -109,9 +54,7 @@ class Layer:
 
 
 class Dense(Layer):
-    """
-    This class is a fully connected layer of neurons.
-    """
+    """This class is a fully connected layer of neurons."""
     def __init__(self, neurons: int, activation: Operation=Sigmoid()):
         super().__init__(neurons)
         self.activation = activation
@@ -124,3 +67,7 @@ class Dense(Layer):
         self.params.append(np.random.randn(input_.shape[1], self.neurons))
         self.params.append(np.random.randn(1, self.neurons))
         self.operations = [WeightMultiply(self.params[0]), BiasAdd(self.params[1]), self.activation]
+
+
+if __name__ == '__main__':
+    pass

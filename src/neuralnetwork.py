@@ -1,11 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Deep Learning from Scratch
-
-Class Definition:
-----------------
-NeuralNetwork
-"""
 import numpy as np
 from typing import List
 from block import Layer, Dense
@@ -14,9 +6,7 @@ from loss import Loss, MeanSquaredError
 
 
 class NeuralNetwork:
-    """
-    This class defines a neural network.
-    """
+    """This class defines a neural network."""
     def __init__(self, layers: List[Layer], loss: Loss, seed: int=1):
         self.layers = layers
         self.loss = loss
@@ -26,17 +16,6 @@ class NeuralNetwork:
                 setattr(layer, "seed", self.seed)
 
     def forward(self, x_batch: np.ndarray) -> np.ndarray:
-        """
-        This function passes data forward through a series of layers.
-
-        Parameters:
-        ----------
-        x_batch : np.ndarray
-
-        Returns:
-        -------
-        out : np.ndarray
-        """
         out = x_batch
         for layer in self.layers:
             out = layer.forward(out)
@@ -44,35 +23,11 @@ class NeuralNetwork:
         return out
 
     def backward(self, loss_grad: np.ndarray):
-        """
-        THis function passes data backward through a series of layers.
-
-        Parameters:
-        ----------
-        loss_grad : np.ndarray
-
-        Returns:
-        -------
-        None
-        """
         grad = loss_grad
         for layer in reversed(self.layers):
             grad = layer.backward(grad)
 
     def train_batch(self, x_batch: np.ndarray, y_batch: np.ndarray) -> float:
-        """
-        This function passes data forward through the layers then
-        computes the loss and passes data backward through the layers.
-
-        Parameters:
-        ----------
-        x_batch : np.ndarray
-        y_batch : np.ndarray
-
-        Returns:
-        -------
-        loss : float
-        """
         predictions = self.forward(x_batch)
         loss = self.loss.forward(predictions, y_batch)
         self.backward(self.loss.backward())
@@ -86,3 +41,7 @@ class NeuralNetwork:
     def param_grads(self):
         for layer in self.layers:
             yield from layer.param_grads
+
+
+if __name__ == '__main__':
+    pass

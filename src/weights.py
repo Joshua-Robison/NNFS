@@ -1,19 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Deep Learning from Scratch
-
-Class Definition:
-----------------
-WeightMultiply
-"""
 import numpy as np
 from operation import ParamOperation
 
 
 class WeightMultiply(ParamOperation):
-    """
-    This class defines a weight multiplication operation for a neural network.
-    """
+    """This class defines a weight multiplication operation for a neural network."""
     def __init__(self, W: np.ndarray):
         super().__init__(W)
 
@@ -25,3 +15,7 @@ class WeightMultiply(ParamOperation):
 
     def _param_grad(self, output_grad: np.ndarray) -> np.ndarray:
         return np.dot(np.transpose(self.input_, (1, 0)), output_grad)
+
+
+if __name__ == '__main__':
+    pass
