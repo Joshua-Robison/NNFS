@@ -4,7 +4,6 @@ import numpy as np
 def shuffle(X, y):
     """This function shuffles the input features (X) and labels (y)."""
     perm = np.random.permutation(X.shape[0])
-
     return X[perm], y[perm]
 
 

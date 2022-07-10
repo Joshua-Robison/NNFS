@@ -10,12 +10,10 @@ class Loss:
     def forward(self, prediction: np.ndarray, target: np.ndarray) -> float:
         self.prediction = prediction
         self.target = target
-
         return self._output()
 
     def backward(self) -> np.ndarray:
         self.input_grad = self._input_grad()
-
         return self.input_grad
 
     def _output(self) -> float:

@@ -52,7 +52,7 @@ class Trainer:
 
             X_train, y_train = shuffle(X_train, y_train)
             batch_generator = self.generate_batches(X_train, y_train, batch_size)
-            for ii, (X_batch, y_batch) in enumerate(batch_generator):
+            for _, (X_batch, y_batch) in enumerate(batch_generator):
                 self.net.train_batch(X_batch, y_batch)
                 self.optim.step()
 

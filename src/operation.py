@@ -10,12 +10,10 @@ class Operation:
     def forward(self, input_: np.ndarray) -> np.ndarray:
         self.input_ = input_
         self.output = self._output()
-
         return self.output
 
     def backward(self, output_grad: np.ndarray) -> np.ndarray:
         self.input_grad = self._input_grad(output_grad)
-
         return self.input_grad
 
     def _output(self) -> np.ndarray:
@@ -35,7 +33,6 @@ class ParamOperation(Operation):
     def backward(self, output_grad: np.ndarray) -> np.ndarray:
         self.input_grad = self._input_grad(output_grad)
         self.param_grad = self._param_grad(output_grad)
-
         return self.input_grad
 
     def _param_grad(self, output_grad: np.ndarray) -> np.ndarray:

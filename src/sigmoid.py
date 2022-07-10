@@ -14,12 +14,10 @@ class Sigmoid(Operation):
         #   Windows does not support float128
         #   warnings.warn('RuntimeWarning')
         warnings.simplefilter("ignore")
-
         return 1.0 / (1.0 + np.exp(-1.0 * self.input_))
 
     def _input_grad(self, output_grad: np.ndarray) -> np.ndarray:
         sigmoid_backward = self.output * (1.0 - self.output)
-
         return sigmoid_backward * output_grad
 
 
