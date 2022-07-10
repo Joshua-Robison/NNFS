@@ -1,6 +1,7 @@
 class Optimizer:
     """This is the base class for a neural network optimizer."""
-    def __init__(self, lr: float=0.01):
+
+    def __init__(self, lr: float = 0.01):
         self.lr = lr
 
     def step(self):
@@ -9,7 +10,8 @@ class Optimizer:
 
 class SGD(Optimizer):
     """This is the stochastic gradient descent optimizer."""
-    def __init__(self, lr: float=0.01):
+
+    def __init__(self, lr: float = 0.01):
         super().__init__(lr)
 
     def step(self):
@@ -17,5 +19,5 @@ class SGD(Optimizer):
             param -= self.lr * param_grad
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

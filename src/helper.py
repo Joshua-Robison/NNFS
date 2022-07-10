@@ -23,9 +23,9 @@ def evaluate(model, X_test, y_test):
     preds = model.forward(X_test)
     preds = preds.reshape(-1, 1)
 
-    print('Mean absolute error: {:.2f}'.format(mae(preds, y_test)))
-    print('Root mean squared error: {:.2f}\n'.format(rmse(preds, y_test)))
+    print("Mean absolute error: {:.2f}".format(mae(preds, y_test)))
+    print("Root mean squared error: {:.2f}\n".format(rmse(preds, y_test)))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

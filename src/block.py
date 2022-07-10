@@ -8,6 +8,7 @@ from sigmoid import Sigmoid
 
 class Layer:
     """This class is a layer of neurons in a neural network."""
+
     def __init__(self, neurons: int):
         self.neurons = neurons
         self.first = True
@@ -55,7 +56,8 @@ class Layer:
 
 class Dense(Layer):
     """This class is a fully connected layer of neurons."""
-    def __init__(self, neurons: int, activation: Operation=Sigmoid()):
+
+    def __init__(self, neurons: int, activation: Operation = Sigmoid()):
         super().__init__(neurons)
         self.activation = activation
 
@@ -66,8 +68,12 @@ class Dense(Layer):
         self.params = []
         self.params.append(np.random.randn(input_.shape[1], self.neurons))
         self.params.append(np.random.randn(1, self.neurons))
-        self.operations = [WeightMultiply(self.params[0]), BiasAdd(self.params[1]), self.activation]
+        self.operations = [
+            WeightMultiply(self.params[0]),
+            BiasAdd(self.params[1]),
+            self.activation,
+        ]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

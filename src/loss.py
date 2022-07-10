@@ -3,6 +3,7 @@ import numpy as np
 
 class Loss:
     """This class defines the loss of a neural network."""
+
     def __init__(self):
         pass
 
@@ -26,15 +27,19 @@ class Loss:
 
 class MeanSquaredError(Loss):
     """This class defines the mean squared loss of a neural network."""
+
     def __init__(self) -> None:
         super().__init__()
 
     def _output(self) -> float:
-        return np.sum(np.power(self.prediction - self.target, 2)) / self.prediction.shape[0]
+        return (
+            np.sum(np.power(self.prediction - self.target, 2))
+            / self.prediction.shape[0]
+        )
 
     def _input_grad(self) -> np.ndarray:
         return 2.0 * (self.prediction - self.target) / self.prediction.shape[0]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

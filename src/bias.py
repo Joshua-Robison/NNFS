@@ -4,6 +4,7 @@ from operation import ParamOperation
 
 class BiasAdd(ParamOperation):
     """This class is the bias addition operation for a neural network."""
+
     def __init__(self, B: np.ndarray):
         assert B.shape[0] == 1
         super().__init__(B)
@@ -20,5 +21,5 @@ class BiasAdd(ParamOperation):
         return np.sum(param_grad, axis=0).reshape(1, param_grad.shape[1])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

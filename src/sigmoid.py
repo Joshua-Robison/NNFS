@@ -5,6 +5,7 @@ from operation import Operation
 
 class Sigmoid(Operation):
     """This class is the sigmoid activation function."""
+
     def __init__(self) -> None:
         super().__init__()
 
@@ -12,7 +13,7 @@ class Sigmoid(Operation):
         # suppress overflow warning due to lack of precision:
         #   Windows does not support float128
         #   warnings.warn('RuntimeWarning')
-        warnings.simplefilter('ignore')
+        warnings.simplefilter("ignore")
 
         return 1.0 / (1.0 + np.exp(-1.0 * self.input_))
 
@@ -22,5 +23,5 @@ class Sigmoid(Operation):
         return sigmoid_backward * output_grad
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

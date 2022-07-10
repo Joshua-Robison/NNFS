@@ -4,6 +4,7 @@ from operation import Operation
 
 class Linear(Operation):
     """This class is the identity activation function."""
+
     def __init__(self):
         super().__init__()
 
@@ -14,5 +15,5 @@ class Linear(Operation):
         return output_grad
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

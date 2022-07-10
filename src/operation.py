@@ -3,6 +3,7 @@ import numpy as np
 
 class Operation:
     """This is the base class for an operation in a neural network."""
+
     def __init__(self):
         pass
 
@@ -26,6 +27,7 @@ class Operation:
 
 class ParamOperation(Operation):
     """This class is an operation with parameters."""
+
     def __init__(self, param: np.ndarray):
         super().__init__()
         self.param = param
@@ -40,5 +42,5 @@ class ParamOperation(Operation):
         raise NotImplementedError()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass

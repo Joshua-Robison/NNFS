@@ -7,7 +7,8 @@ from loss import Loss, MeanSquaredError
 
 class NeuralNetwork:
     """This class defines a neural network."""
-    def __init__(self, layers: List[Layer], loss: Loss, seed: int=1):
+
+    def __init__(self, layers: List[Layer], loss: Loss, seed: int = 1):
         self.layers = layers
         self.loss = loss
         self.seed = seed
@@ -43,5 +44,5 @@ class NeuralNetwork:
             yield from layer.param_grads
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     pass
